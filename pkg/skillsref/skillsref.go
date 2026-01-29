@@ -10,14 +10,17 @@ import (
 	"github.com/jhaoheng/skills-validate-go/internal/validator"
 )
 
+// Validate performs complete validation of a skill directory and returns any errors found.
 func Validate(skillDir string) []string {
 	return validator.Validate(skillDir)
 }
 
+// ReadProperties reads and parses the skill properties from a skill directory.
 func ReadProperties(skillDir string) (*models.SkillProperties, error) {
 	return parser.ReadProperties(skillDir)
 }
 
+// ReadPropertiesJSON reads skill properties and returns them as a JSON string.
 func ReadPropertiesJSON(skillDir string) (string, error) {
 	props, err := parser.ReadProperties(skillDir)
 	if err != nil {
@@ -32,6 +35,7 @@ func ReadPropertiesJSON(skillDir string) (string, error) {
 	return string(jsonBytes), nil
 }
 
+// ToPrompt generates an XML representation of available skills for agent prompts.
 func ToPrompt(skillDirs []string) (string, error) {
 	return prompt.ToPrompt(skillDirs)
 }

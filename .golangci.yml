@@ -1,26 +1,25 @@
+version: "2"
+
 run:
   timeout: 5m
   tests: true
 
 linters:
   enable:
-    - gofmt
+    - errcheck
     - govet
     - staticcheck
-    - errcheck
-    - gosimple
     - ineffassign
     - unused
     - misspell
     - revive
 
-linters-settings:
+settings:
   revive:
     rules:
       - name: exported
         disabled: false
 
 issues:
-  exclude-use-default: false
   max-issues-per-linter: 0
   max-same-issues: 0

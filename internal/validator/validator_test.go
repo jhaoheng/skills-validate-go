@@ -9,9 +9,13 @@ import (
 func TestValidate(t *testing.T) {
 	t.Run("valid skill directory", func(t *testing.T) {
 		dir := filepath.Join(t.TempDir(), "test-skill")
-		os.Mkdir(dir, 0755)
+		if err := os.Mkdir(dir, 0755); err != nil {
+			t.Fatal(err)
+		}
 		content := "---\nname: test-skill\ndescription: A valid test skill\n---\nBody"
-		os.WriteFile(filepath.Join(dir, "SKILL.md"), []byte(content), 0644)
+		if err := os.WriteFile(filepath.Join(dir, "SKILL.md"), []byte(content), 0644); err != nil {
+			t.Fatal(err)
+		}
 
 		errors := Validate(dir)
 		if len(errors) > 0 {

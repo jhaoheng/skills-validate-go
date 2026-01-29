@@ -30,8 +30,8 @@ test-coverage: ## Run tests with coverage report
 lint: ## Run linters
 	@echo "Running linters..."
 	@if ! command -v golangci-lint &> /dev/null; then \
-		echo "golangci-lint not found. Installing..."; \
-		go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest; \
+		echo "golangci-lint not found. Install it with: brew install golangci-lint"; \
+		exit 1; \
 	fi
 	golangci-lint run ./...
 

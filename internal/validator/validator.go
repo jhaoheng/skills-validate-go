@@ -126,6 +126,7 @@ func getAllowedFieldsList() []string {
 	return fields
 }
 
+// ValidateMetadata validates the YAML frontmatter metadata of a skill.
 func ValidateMetadata(metadata map[string]interface{}, skillDir string) []string {
 	var errors []string
 
@@ -158,6 +159,7 @@ func ValidateMetadata(metadata map[string]interface{}, skillDir string) []string
 	return errors
 }
 
+// Validate performs complete validation of a skill directory.
 func Validate(skillDir string) []string {
 	info, err := os.Stat(skillDir)
 	if os.IsNotExist(err) {

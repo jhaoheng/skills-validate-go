@@ -9,6 +9,7 @@ import (
 	"github.com/jhaoheng/skills-validate-go/internal/parser"
 )
 
+// ToPrompt generates an XML representation of available skills for agent prompts.
 func ToPrompt(skillDirs []string) (string, error) {
 	if len(skillDirs) == 0 {
 		return "<available_skills>\n</available_skills>", nil
