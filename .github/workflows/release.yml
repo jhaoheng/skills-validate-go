@@ -22,6 +22,12 @@ jobs:
         with:
           go-version: "1.23"
 
+      - name: Debug directory structure
+        run: |
+          pwd
+          ls -la
+          ls -la cmd/
+
       - name: Run GoReleaser
         # Use goreleaser-action v5 to run GoReleaser v1.x which accepts the current .goreleaser.yml
         uses: goreleaser/goreleaser-action@v5
